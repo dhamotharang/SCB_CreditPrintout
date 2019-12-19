@@ -1,0 +1,72 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3>
+        </div>
+
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <form>
+
+                        <label for="" class="control-label">Main Search: </label>
+                        <input type="text" class="input-sm" placeholder="Enter Reference Number or Account Number" ng-model="vm.searchParam " style="width:300px" />
+                        <button type="button" class="btn btn-default btn-sm" ng-click="vm.loadLoanECLResultBySearch()">Load</button>
+                        <button type="button" class="btn btn-info btn-sm" ng-click="vm.refresh()">Refresh</button>
+
+                    </form>
+                </div>
+            </div>
+
+            <table id="loanECLresultTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>AccountNo</th>
+                        <th>RefNo</th>
+                        <th>CustomerName</th>
+                        <th>Producttype	</th>
+                        <th>SubType</th>
+                        <th>Currency</th>
+                        <th>FinalECLBest</th>
+                        <th>FinalECLOptimistic</th>
+                        <th>FinalECLDownTurn</th>
+                        <th>FinalEChtAvg</th>
+                        <th>Rundate</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="loanECLresults in vm.loanECLresult">
+
+                        <td>{{ loanECLresults.AccountNo }}</td>
+                        <td>{{ loanECLresults.RefNo }}</td>
+                        <td>{{ loanECLresults.CustomerName }}</td>
+                        <td>{{ loanECLresults.Producttype	 }}</td>
+                        <td>{{ loanECLresults.SubType }}</td>
+                        <td>{{ loanECLresults.Currency }}</td>
+                        <td>{{ loanECLresults.FinalECLBest }}</td>
+                        <td>{{ loanECLresults.FinalECLOptimistic }}</td>
+                        <td>{{ loanECLresults.FinalECLDownTurn }}</td>
+                        <td>{{ loanECLresults.FinalEChtAvg }}</td>
+                        <td>{{ loanECLresults.Rundate }}</td>
+
+                    </tr>
+
+
+                </tbody>
+            </table>
+
+        </div>
+
+
+
+    </div>
+</div>

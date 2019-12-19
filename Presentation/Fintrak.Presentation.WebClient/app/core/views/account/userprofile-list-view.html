@@ -1,0 +1,216 @@
+<div class="main-header">
+    <h2>Profile</h2>
+    <em>user profile page</em>
+</div>
+
+<div class="main-content">
+    <!-- NAV TABS -->
+
+
+    <div ng-if="vm.showPage">
+        <ul class="nav nav-tabs nav-tabs-custom-colored tabs-iconized">
+            <li class="active"><a href="#profile-tab" data-toggle="tab"><i class="fa fa-user"></i> Profile</a></li>
+            <li><a href="#settings-tab" data-toggle="tab"><i class="fa fa-gear"></i> Settings</a></li>
+        </ul>
+    </div>
+
+    <div ng-if="!vm.showPage">
+        <ul class="nav nav-tabs nav-tabs-custom-colored tabs-iconized">
+            <li class="active"><a href="#settings-tab" data-toggle="tab"><i class="fa fa-gear"></i> Settings</a></li>
+        </ul>
+    </div>
+
+
+
+
+
+    <!-- END NAV TABS -->
+    <div ng-if="vm.showPage" class="tab-content profile-page">
+        <!-- PROFILE TAB CONTENT -->
+        <div class="tab-pane profile active" id="profile-tab">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="user-info-left">
+
+                        <!--<img src="app/core/images/profile-avatar.jpg" alt="Profile Picture" id="photo-id" />-->
+                        <!-- img ng-src="data:image/JPEG;base64,{{vm.userProfile.Photo}}" id="photo-id"-->
+                        "/
+
+
+                        <img ng-src="/app/assets/img/avatar.jpg" id="photo-id" />
+
+
+
+                        <h2>{{vm.userProfile.Name}} <i class="fa fa-circle green-font online-icon"></i><sup class="sr-only">online</sup></h2>
+                        <div class="contact">
+
+                            <!--<a href="#" class="btn btn-block btn-custom-primary"><i class="fa fa-envelope-o"></i> Send Message</a>
+                            <a href="#" class="btn btn-block btn-custom-secondary"><i class="fa fa-book"></i> Add To Contact</a>-->
+                            <ul class="list-inline social">
+                                <li><a href="#" title="Facebook"><i class="fa fa-facebook-square"></i></a></li>
+                                <li><a href="#" title="Twitter"><i class="fa fa-twitter-square"></i></a></li>
+                                <li><a href="#" title="Google Plus"><i class="fa fa-google-plus-square"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <div class="user-info-right">
+                        <div class="basic-info">
+                            <h3><i class="fa fa-square"></i> Basic Information</h3>
+                            <p class="data-row">
+                                <span class="data-name">Login ID</span>
+                                <span class="data-value">{{vm.userProfile.LoginID}}</span>
+                            </p>
+                            <p class="data-row">
+                                <span class="data-name">Name</span>
+                                <span class="data-value">{{vm.userProfile.Name}}</span>
+                            </p>
+
+                            <p class="data-row">
+                                <span class="data-name">Login Date</span>
+                                <span class="data-value">{{vm.userProfile.LatestConnection | date}}</span>
+                            </p>
+
+                            <p class="data-row">
+                                <span class="data-name">Change Picture (100 by 100 px)</span>
+                                <span class="data-value"><input type="file" name="file" onchange="angular.element(this).scope().vm.uploadPhoto(this, 'photo-id')" id="photo-upload" /></span>
+                            </p>
+
+                        </div>
+                        <div class="contact_info">
+                            <h3><i class="fa fa-square"></i> Contact Information</h3>
+                            <p class="data-row">
+                                <span class="data-name">Email</span>
+                                <span class="data-value">{{vm.userProfile.Email}}</span>
+                            </p>
+                            <p class="data-row">
+                                <span class="data-name">Phone</span>
+                                <span class="data-value">(1800) 221 - 876543</span>
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END PROFILE TAB CONTENT -->
+        <!-- SETTINGS TAB CONTENT -->
+        <div class="tab-pane settings" id="settings-tab">
+            <form class="form-horizontal" role="form">
+                <fieldset>
+                    <h3><i class="fa fa-square"></i> Change Password</h3>
+                    <div class="form-group">
+                        <label for="old-password" class="col-sm-3 control-label">Old Password</label>
+                        <div class="col-sm-4">
+                            <input type="password" id="old-password" name="old-password" class="form-control">
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="form-group">
+                        <label for="password" class="col-sm-3 control-label">New Password</label>
+                        <div class="col-sm-4">
+                            <input type="password" id="password" ng-model="vm.password" ng-change="vm.analyze(vm.password)" name="password" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="password2" class="col-sm-3 control-label">Repeat Password</label>
+                        <div class="col-sm-4">
+                            <input type="password" id="password2" ng-model="vm.confirmpass" name="password2" class="form-control">
+                        </div>
+                    </div>
+                </fieldset>
+
+            </form>
+            <!--<p class="text-center"><a href="api/account/changepw/" class="btn btn-custom-primary"><i class="fa fa-floppy-o"></i> Save Changes</a></p>-->
+
+            <div class="form-group mbn">
+                <label class="col-sm-3 control-label"></label>
+                <div class="col-sm-9 controls">
+                    <button type="button" class="btn btn-success btn-xs" ng-click="vm.changePassword(vm.showPage)">
+                        <!--<span class="data-value"><input type="file" name="file" onchange="angular.element(this).scope().vm.uploadPhoto(this, 'photo-id')" id="photo-upload" /></span>-->
+                        <i class="fa fa-save"></i>&nbsp;
+                        Save
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- END SETTINGS TAB CONTENT -->
+    </div>
+
+
+
+
+
+
+
+    <!-- END NAV TABS -->
+    <div ng-if="!vm.showPage" class="tab-content">
+
+        <!-- SETTINGS TAB CONTENT -->
+        <div class="tab-pane settings active" id="settings-tabxy">
+            <form class="form-horizontal" role="form">
+                <fieldset>
+                    <h3><i class="fa fa-square"></i> Change Password</h3>
+                    <div class="form-group">
+                        <label for="old-password" class="col-sm-3 control-label">Old Password</label>
+                        <div class="col-sm-4">
+                            <input type="password" id="old-password" ng-disabled="vm.disablePass" name="old-password" class="form-control">
+                        </div>
+                    </div>
+                    <hr />
+
+                    <div class="form-group">
+                        <label for="password" class="col-sm-3 control-label">New Password</label>
+                        <div class="col-sm-4">
+                            <input type="password" ng-disabled="vm.disablePass" id="password" ng-model="vm.password" ng-change="vm.analyze(vm.password)" name="password" class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password2" class="col-sm-3 control-label">Repeat Password</label>
+                        <div class="col-sm-4">
+                            <input type="password" ng-disabled="vm.disablePass" id="password2" ng-model="vm.confirmpass" name="password2" class="form-control">
+                        </div>
+                    </div>
+
+                </fieldset>
+
+            </form>
+            <!--<p class="text-center"><a href="api/account/changepw/" class="btn btn-custom-primary"><i class="fa fa-floppy-o"></i> Save Changes</a></p>-->
+
+            <div class="form-group mbn">
+                <label class="col-sm-3 control-label"></label>
+                <div class="col-sm-9 controls">
+
+                    <a ng-show="vm.disablePass" class="btn btn-success btn-sm" href="/Home/Index#/core-userprofile-list">
+                        Click to Proceed&nbsp; <i class="fa fa-home"></i>
+                    </a>
+
+
+                    <button ng-show="!vm.disablePass" type="button" class="btn btn-success btn-xs" ng-click="vm.changePassword(vm.showPage)">
+
+                        <!--<span class="data-value"><input type="file" name="file" onchange="angular.element(this).scope().vm.uploadPhoto(this, 'photo-id')" id="photo-upload" /></span>-->
+                        <i class="fa fa-save"></i>&nbsp;
+                        Save
+                    </button>
+
+                </div>
+            </div>
+        </div>
+        <!-- END SETTINGS TAB CONTENT -->
+    </div>
+
+
+
+    <div ng-style="passwordStrength"></div>
+
+
+
+
+
+
+
+
+
+</div>

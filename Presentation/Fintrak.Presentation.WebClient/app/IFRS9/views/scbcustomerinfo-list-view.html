@@ -1,0 +1,86 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3>
+        </div>
+
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+
+            <div class="row">
+                <div class="col-md-12">
+                    <form>
+
+                        <label for="" class="control-label">Main Search: </label>
+                        <input type="text" class="input-sm" placeholder="Enter last credit date" ng-model="vm.searchParam " style="width:300px" />
+                        <button type="button" class="btn btn-default btn-sm" ng-click="vm.loadCRLastCreditDateBySearch()">Load</button>
+                        <button type="button" class="btn btn-info btn-sm" ng-click="vm.refresh()">Refresh</button>
+
+                    </form>
+                </div>
+            </div>
+
+            <div>
+                <a class="btn btn-info btn-xs" data-ui-sref="ifrs-scbcustomerinfo-edit({ID:0})"> Create New</a>
+            </div>
+            <br />
+
+            <table id="ScbCUSTOMERInfoTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+
+                        <th>Contract Number</th>
+                        <th>Customer Id</th>
+                        <th>Facility Type</th>
+                        <th>Sector</th>
+                        <th>Sub Sector</th>
+                        <th>Repayment Frequency</th>
+                        <th>Repayment Frequency In Words</th>
+                        <th>Tin Number</th>
+                        <th>Bvn</th>
+
+                        <th style="width: 3%;">Action</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <tr ng-repeat="ScbCUSTOMERInfos in vm.ScbCUSTOMERInfo">
+
+                        <td>{{ ScbCUSTOMERInfos.Contract_Number }}</td>
+                        <td>{{ ScbCUSTOMERInfos.customer_id }}</td>
+                        <td>{{ ScbCUSTOMERInfos.Facility_type }}</td>
+                        <td>{{ ScbCUSTOMERInfos.Sector }}</td>
+                        <td>{{ ScbCUSTOMERInfos.Sub_sector }}</td>
+                        <td>{{ ScbCUSTOMERInfos.Repayment_Frequency | currency :"":0}}</td>
+                        <td>{{ ScbCUSTOMERInfos.Repayment_Frequency_in_words }}</td>
+                        <td>{{ ScbCUSTOMERInfos.Tin_number }}</td>
+                        <td>{{ ScbCUSTOMERInfos.BVN }}</td>
+
+                        <td>
+                            <a class="btn btn-orange btn-xs" data-ui-sref="ifrs-scbcustomerinfo-edit({ID:ScbCUSTOMERInfos.ID})">
+                                Edit
+                            </a>
+                        </td>
+
+                    </tr>
+
+                </tbody>
+            </table>
+
+        </div>
+
+
+
+    </div>
+</div>

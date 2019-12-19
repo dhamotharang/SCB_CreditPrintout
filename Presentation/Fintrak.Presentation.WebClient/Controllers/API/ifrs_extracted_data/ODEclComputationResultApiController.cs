@@ -1,0 +1,97 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.Composition;
+using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Web.Http;
+using Fintrak.Presentation.WebClient.Core;
+using Fintrak.Shared.Common.Contracts;
+using Fintrak.Client.IFRS.Contracts;
+using Fintrak.Client.IFRS.Entities;
+
+namespace Fintrak.Presentation.WebClient.API {
+    [Export]
+    [PartCreationPolicy(CreationPolicy.NonShared)]
+    [RoutePrefix("api/ODEclComputationResult")]
+    [UsesDisposableService]
+    public class ODEclComputationResultApiController : ApiControllerBase {
+        [ImportingConstructor]
+        public ODEclComputationResultApiController(IExtractedDataService ifrsDataService) {
+            _IFRSDataService = ifrsDataService;
+        }
+        IExtractedDataService _IFRSDataService;
+        protected override void RegisterServices(List<IServiceContract> disposableServices) {
+            disposableServices.Add(_IFRSDataService);
+        }
+
+        [HttpPost]
+        [Route("updateODEclComputationResult")]
+        public HttpResponseMessage Updateodeclcomputationresult(HttpRequestMessage request, [FromBody]ODEclComputationResult odeclcomputationresultModel) {
+            return GetHttpResponse(request, () => {
+                var odeclcomputationresult = _IFRSDataService.UpdateODEclComputationResult(odeclcomputationresultModel);
+                return request.CreateResponse<ODEclComputationResult>(HttpStatusCode.OK, odeclcomputationresult);
+            });
+        }
+
+
+        [HttpPost]
+        [Route("deleteODEclComputationResult")]
+        public HttpResponseMessage DeleteODEclComputationResult(HttpRequestMessage request, [FromBody]int Id) {
+            return GetHttpResponse(request, () => {
+                HttpResponseMessage response = null;
+                // not that calling the WCF service here will authenticate access to the data
+                ODEclComputationResult odeclcomputationresult = _IFRSDataService.GetODEclComputationResult(Id);
+                if (odeclcomputationresult != null) {
+                    _IFRSDataService.DeleteODEclComputationResult(Id);
+                    response = request.CreateResponse(HttpStatusCode.OK);
+                } else
+                    response = request.CreateErrorResponse(HttpStatusCode.NotFound, "No ODEclComputationResult data found under that ID.");
+                return response;
+            });
+        }
+
+
+        [HttpGet]
+        [Route("availableODEclComputationResult")]
+        public HttpResponseMessage GetAvailableODEclComputationResults(HttpRequestMessage request) {
+            return GetHttpResponse(request, () => {
+                ODEclComputationResult[] odeclcomputationresult = _IFRSDataService.GetAllODEclComputationResult().ToArray();
+                return request.CreateResponse<ODEclComputationResult[]>(HttpStatusCode.OK, odeclcomputationresult.ToArray());
+            });
+        }
+
+        [HttpGet]
+        [Route("getODEclComputationResult/{Id}")]
+        public HttpResponseMessage GetODEclComputationResult(HttpRequestMessage request, int Id) {
+            return GetHttpResponse(request, () => {
+                HttpResponseMessage response = null;
+                ODEclComputationResult odeclcomputationresult = _IFRSDataService.GetODEclComputationResult(Id);
+                // notice no need to create a seperate model object since Setup entity will do just fine
+                response = request.CreateResponse<ODEclComputationResult>(HttpStatusCode.OK, odeclcomputationresult);
+                return response;
+            });
+        }
+
+
+        [HttpGet]
+        [Route("getODEclComputationResultbysearch/{searchParam}")]
+        public HttpResponseMessage GetODEclComputationResultBySearch(HttpRequestMessage request, string searchParam) {
+            return GetHttpResponse(request, () => {
+                ODEclComputationResult[] odeclcomputationresult = _IFRSDataService.GetODEclComputationResultBySearch(searchParam);
+                return request.CreateResponse<ODEclComputationResult[]>(HttpStatusCode.OK, odeclcomputationresult.ToArray());
+            });
+        }
+
+
+        [HttpGet]
+        [Route("availableODEclComputationResult/{defaultCount}")]
+        public HttpResponseMessage GetAvailableODEclComputationResult(HttpRequestMessage request, int defaultCount) {
+            return GetHttpResponse(request, () => {
+                ODEclComputationResult[] odeclcomputationresult = _IFRSDataService.GetODEclComputationResults(defaultCount).ToArray();
+                return request.CreateResponse<ODEclComputationResult[]>(HttpStatusCode.OK, odeclcomputationresult.ToArray());
+            });
+        }
+
+    }
+}

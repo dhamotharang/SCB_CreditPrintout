@@ -1,0 +1,76 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3>
+        </div>
+
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+
+           <!--  
+               
+            <div class="row">
+                <div class="col-md-12">
+                    <form>
+
+                        <label for="" class="control-label">Main Search: </label>
+                        <input type="text" class="input-sm" placeholder="Enter Reference Number or Account Number" ng-model="vm.searchParam " style="width:300px" />
+                        <button type="button" class="btn btn-default btn-sm" ng-click="vm.loadHistoricalDefaultFreqBySearch()">Load</button>
+                        <button type="button" class="btn btn-info btn-sm" ng-click="vm.refresh()">Refresh</button>
+
+                    </form>
+                </div>
+            </div>
+
+           --->
+
+            <table id="historicalDEFAULTFreqTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>ProductType	</th>
+                        <th>Sub_type</th>
+                        <th>Origin_Yr</th>
+                        <th>AdjBal</th>
+                        <th>OutBalAfter_Yr</th>
+                        <th>OutBalAfter_Yr1</th>
+                        <th>OutBalAfter_Yr2</th>
+                        <th>OutBalAfter_Yr3</th>
+                        <th>OutBalAfter_Yr4</th>
+                        <th>OutBalAfter_Yr5</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="historicalDEFAULTFreqs in vm.historicalDEFAULTFreq">
+
+                        <td>{{ historicalDEFAULTFreqs.ProductType	 }}</td>
+                        <td>{{ historicalDEFAULTFreqs.Sub_type }}</td>
+                        <td>{{ historicalDEFAULTFreqs.Origin_Yr }}</td>
+                        <td>{{ historicalDEFAULTFreqs.AdjBal }}</td>
+                        <td>{{ historicalDEFAULTFreqs.OutBalAfter_Yr }}</td>
+                        <td>{{ historicalDEFAULTFreqs.OutBalAfter_Yr1 }}</td>
+                        <td>{{ historicalDEFAULTFreqs.OutBalAfter_Yr2 }}</td>
+                        <td>{{ historicalDEFAULTFreqs.OutBalAfter_Yr3 }}</td>
+                        <td>{{ historicalDEFAULTFreqs.OutBalAfter_Yr4 }}</td>
+                        <td>{{ historicalDEFAULTFreqs.OutBalAfter_Yr5 }}</td>
+
+
+                    </tr>
+
+
+                </tbody>
+            </table>
+
+        </div>
+
+
+
+    </div>
+</div>

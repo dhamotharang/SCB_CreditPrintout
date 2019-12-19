@@ -1,0 +1,79 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3>
+        </div>
+
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+
+            <div class="row">
+                <div class="col-md-12">
+                    <form>
+
+                        <label for="" class="control-label">Main Search: </label>
+                        <input type="text" class="input-sm" placeholder="Enter last credit date" ng-model="vm.searchParam " style="width:300px" />
+                        <button type="button" class="btn btn-default btn-sm" ng-click="vm.loadCRLastCreditDateBySearch()">Load</button>
+                        <button type="button" class="btn btn-info btn-sm" ng-click="vm.refresh()">Refresh</button>
+
+                    </form>
+                </div>
+            </div>
+
+            <div>
+                <a class="btn btn-info btn-xs" data-ui-sref="ifrs-crlastcreditdate-edit({ID:0})"> Create New</a>
+            </div>
+
+            <br />
+
+            <table id="crLASTcreDITDATETable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+
+                        <th>Last Credit Date</th>
+                        <th>Facility Type</th>
+                        <th>Customer Id</th>
+                        <th>Sector</th>
+                        <th>Subsector</th>
+
+                        <th style="width: 3%;">Action</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <tr ng-repeat="crLASTcreDITDATEs in vm.crLASTcreDITDATE">
+
+                        <td>{{ crLASTcreDITDATEs.LAST_CREDIT_DATE | date }}</td>
+                        <td>{{ crLASTcreDITDATEs.facility_type }}</td>
+                        <td>{{ crLASTcreDITDATEs.Customer_Id }}</td>
+                        <td>{{ crLASTcreDITDATEs.sector }}</td>
+                        <td>{{ crLASTcreDITDATEs.subsector }}</td>
+
+                        <td>
+                            <a class="btn btn-orange btn-xs" data-ui-sref="ifrs-crlastcreditdate-edit({ID:crLASTcreDITDATEs.ID})">
+                                Edit
+                            </a>
+                        </td>
+
+                    </tr>
+
+                </tbody>
+            </table>
+
+        </div>
+
+
+
+    </div>
+</div>

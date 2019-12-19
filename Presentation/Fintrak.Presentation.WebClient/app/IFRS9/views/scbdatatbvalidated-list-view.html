@@ -1,0 +1,172 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3>
+        </div>
+
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+
+            <div class="row">
+                <div class="col-md-10">
+                    <form>
+                        <label for="" class="control-label">Main Search: </label>
+                        <input type="text" class="input-sm" placeholder="Enter Contract Number to search" ng-model="vm.searchParam " style="width:300px" />
+                        <button type="button" class="btn btn-default btn-sm" ng-click="vm.loadScbDataTBValidatedBySearch()">Load</button>
+                        <button type="button" class="btn btn-info btn-sm" ng-click="vm.exportAllData()">Export All</button>
+                        <button type="button" class="btn btn-info btn-sm" ng-click="vm.refresh()">Refresh</button>
+                    </form>
+                </div>
+
+                <div class="col-md-2">
+
+                    <b>Total Balance :: </b>
+                    {{ vm.total_balance | number: 0 }}
+
+                </div>
+
+            </div>
+
+            <hr />
+
+            <div class="row">
+
+                <div class="col-md-12">
+                    <form>
+                        <label for="" class="control-label">Loan Filter: </label>
+                        <input type="number" class="input-sm" placeholder="min.loan amount" ng-model="vm.minLoan" style="width:200px" />
+                        to
+                        <input type="number" class="input-sm" placeholder="max.loan amount" ng-model="vm.maxLoan" style="width:200px" />
+                        <button type="button" class="btn btn-default btn-sm" ng-click="vm.filterLoans()">Filter Loan</button>
+                    </form>
+                </div>
+
+            </div>
+
+            <hr  style="clear:both; border:solid 1px #d3d3d3 !important"/>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="moduleFilterSection">
+
+                        <div ng-show="vm.spinner" class="imgspinner"><img src="/app/assets/img/yahoo.gif" /></div>
+
+                        <label for="" class="control-label">Update Section:</label>
+                        <select class="input-sm" ng-model="vm.opt_1" ng-options="options.name for options in vm.optCriteria" style="width:250px;" ng-change="vm.getSubOptions()"></select>
+                        &nbsp;&nbsp;
+
+                        <select class="input-sm" ng-model="vm.opt_2" ng-options="options.name for options in vm.subs" ng-change="vm.setScbDataTBValidatedOptield()" style="width:150px;"></select>
+
+                        &nbsp;&nbsp;
+                        <input type="text" class="input-sm" data-ng-model="vm.filterValue" style="width:150px" />
+
+                        <button class="btn btn-info btn-sm" ng-click="vm.updateFilterCriteria()"> Update</button>
+                    </div>
+                </div>
+            </div>
+
+            <hr />
+
+            <table id="scbDATATBValidatedTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+
+                        <th style="width: 3%;">Action</th>
+                        <th>Contract No</th>
+                        <th>Account No</th>
+                        <th>BVN</th>
+                        <th>Customer Name</th>
+                        <th>TIN</th>
+                        <th>Facility Type</th>
+                        <th>Business Type</th>
+                        <th>Sector</th>
+                        <th>Sub Sector</th>
+                        <th>Customer Id</th>
+                        <th>Group Organization</th>
+                        <th>Date Granted</th>
+                        <th>Last Credit Date</th>
+                        <th>Expiry Date</th>
+                        <th>Sanction Limit</th>
+                        <th>Previous Limit</th>
+                        <th>Repayment Frequency</th>
+                        <th>Cum Repayment Amt Due</th>
+                        <th>Cum Repayment Amt  Paid</th>
+                        <th>Cum Interest Due not-yet paid</th>
+                        <th>Cum Principal Due not-yet paid</th>
+                        <th>Interest Rate</th>
+                        <th>Tenor</th>
+                        <th>Balance</th>
+                        <th>LCY</th>
+                        <th>Details of Securities Others</th>
+                        <th>Collateral Value</th>
+                        <th>Collateral Status</th>
+                        <th>Bank Classification</th>
+                        <th>Last Examiners Classification</th>
+                        <th>Last Audit Date</th>
+                        <th>Name of Auditor</th>
+                        <th>Obligor Shareholder Fund</th>
+                        <th>Obligor profit before tax</th>
+                        <th>Obligor total Asset</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="scbDATATBValidated in vm.scbDATATBValidateds">
+
+                        <td><a class="btn btn-orange btn-xs" data-ui-sref="ifrs-scbdatatbvalidated-edit({ID:scbDATATBValidated.ID})">Edit</a></td>
+                        <td>{{ scbDATATBValidated.contract_no }}</td>
+                        <td>{{ scbDATATBValidated.account_number }}</td>
+                        <td>{{ scbDATATBValidated.bvn }}</td>
+                        <td>{{ scbDATATBValidated.customer_name }}</td>
+                        <td>{{ scbDATATBValidated.tin }}</td>
+                        <td>{{ scbDATATBValidated.facility_type }}</td>
+                        <td>{{ scbDATATBValidated.business_type }}</td>
+                        <td>{{ scbDATATBValidated.sector }}</td>
+                        <td>{{ scbDATATBValidated.sub_sector }}</td>
+                        <td>{{ scbDATATBValidated.customer_id }}</td>
+                        <td>{{ scbDATATBValidated.group_organization }}</td>
+                        <td>{{ scbDATATBValidated.date_granted | date }}</td>
+                        <td>{{ scbDATATBValidated.last_credit_date | date }}</td>
+                        <td>{{ scbDATATBValidated.expiry_date | date }}</td>
+                        <td>{{ scbDATATBValidated.sanction_date | date }}</td>
+                        <td>{{ scbDATATBValidated.previous_limit }}</td>
+                        <td>{{ scbDATATBValidated.repayment_frequency }}</td>
+                        <td>{{ scbDATATBValidated.cum_repayment_amount_due }}</td>
+                        <td>{{ scbDATATBValidated.cum_repayment_amount_paid }}</td>
+                        <td>{{ scbDATATBValidated.cum_interest_due_not_yet_paid }}</td>
+                        <td>{{ scbDATATBValidated.cum_principal_due_not_yet_paid }}</td>
+                        <td>{{ scbDATATBValidated.interest_rate }}</td>
+                        <td>{{ scbDATATBValidated.tenor }}</td>
+                        <td>{{ scbDATATBValidated.balance }}</td>
+                        <td>{{ scbDATATBValidated.lcy }}</td>
+                        <td>{{ scbDATATBValidated.details_of_securities_others }}</td>
+                        <td>{{ scbDATATBValidated.collateral_value }}</td>
+                        <td>{{ scbDATATBValidated.collateral_status }}</td>
+                        <td>{{ scbDATATBValidated.bank_classification }}</td>
+                        <td>{{ scbDATATBValidated.last_examiners_classification }}</td>
+                        <td>{{ scbDATATBValidated.last_audit_date | date }}</td>
+                        <td>{{ scbDATATBValidated.name_of_auditor }}</td>
+                        <td>{{ scbDATATBValidated.obligor_shareholder_fund }}</td>
+                        <td>{{ scbDATATBValidated.obligor_profit_before_tax }}</td>
+                        <td>{{ scbDATATBValidated.obligor_total_asset }}</td>
+
+                    </tr>
+
+
+                </tbody>
+            </table>
+
+        </div>
+
+
+
+    </div>
+</div>

@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <setParameter name="IIS Web Application Name" value="Default Web Site/Fintrak.Presentation.WebClient_deploy" />
+  <setParameter name="FintrakCoreDBConnection-Web.config Connection String" value="Data Source=.\FINTRAKSQL2016;Initial Catalog=FinTrakCoreDB;User =sa;Password=sqluser10$;Integrated Security=False" />
+  <setParameter name="FintrakDBConnection-Web.config Connection String" value="Data Source=.\FINTRAKSQL2016;Initial Catalog=FintrakDBMerchant;User =sa;Password=sqluser10$;Integrated Security=False;MultipleActiveResultSets=True" />
+  <setParameter name="FintrakLogDBConnection-Web.config Connection String" value="Data Source=.\FINTRAKSQL2016;Initial Catalog=FintrakLogDB;User =sa;Password=sqluser10$;Integrated Security=False" />
+  <setParameter name="ADConnectionString-Web.config Connection String" value="LDAP://fintrak.com/DC=fintrak,DC=com" />
+  <setParameter name="Fintrak.Shared.AuditService.DataContext-Web.config Connection String" value="Fintrak.Shared.AuditService.DataContext_ConnectionString" />
+</parameters>

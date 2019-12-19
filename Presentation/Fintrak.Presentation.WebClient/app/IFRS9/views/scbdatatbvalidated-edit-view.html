@@ -1,0 +1,326 @@
+﻿<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3>
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#general" role="tab" data-toggle="tab"><i class="fa fa-home"></i> General</a></li>
+                    </ul>
+
+                    <div id="general" class="tab-content">
+                        <div id="tab-edit" class="tab-pane fade in active">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="tab-content">
+                                        <form action="#" class="form-horizontal">
+                                            <div class="form-body">
+
+                                                <div class="row">
+
+                                                    <div class="col-md-12">
+
+                                                        <div data-ng-include="'app/common/views/validation-view.html'"></div>
+
+                                                        <div class="form-group">
+                                                            <label class="col-sm-3 control-label"><b>Contract No</b></label>
+                                                            <div class="col-sm-9 controls">
+                                                                <input type="text" class="form-control input-sm" data-ng-model="vm.scbDATATBValidated.contract_no" style="width:250px;background-color:lightblue" />
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label class="col-sm-3 control-label"><b>Account Number</b></label>
+                                                            <div class="col-sm-9 controls">
+                                                                <input type="text" class="form-control input-sm" data-ng-model="vm.scbDATATBValidated.account_number" style="width:250px;background-color:lightblue" />
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label class="col-sm-3 control-label"><b>Bvn</b></label>
+                                                            <div class="col-sm-9 controls">
+                                                                <input type="text" class="form-control input-sm" data-ng-model="vm.scbDATATBValidated.bvn" style="width:250px;background-color:lightblue" />
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label class="col-sm-3 control-label"><b>Customer Name</b></label>
+                                                            <div class="col-sm-9 controls">
+                                                                <input type="text" class="form-control input-sm" data-ng-model="vm.scbDATATBValidated.customer_name" style="width:250px;background-color:lightblue" />
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label class="col-sm-3 control-label"><b>Tin</b></label>
+                                                            <div class="col-sm-9 controls">
+                                                                <input type="text" class="form-control input-sm" data-ng-model="vm.scbDATATBValidated.tin" style="width:250px;background-color:lightblue" />
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label class="col-sm-3 control-label"><b>Facility Type</b></label>
+                                                            <div class="col-sm-9 controls">
+                                                                <input type="text" class="form-control input-sm" data-ng-model="vm.scbDATATBValidated.facility_type" style="width:250px;background-color:lightblue" />
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label class="col-sm-3 control-label"><b>Business Type</b></label>
+                                                            <div class="col-sm-9 controls">
+                                                                <input type="text" class="form-control input-sm" data-ng-model="vm.scbDATATBValidated.business_type" style="width:250px;background-color:lightblue" />
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label class="col-sm-3 control-label"><b>Sector</b></label>
+                                                            <div class="col-sm-9 controls">
+                                                                <select class="input-sm" ng-model="vm.sectorObj" ng-options="options.name for options in vm.allSectors" ng-change="vm.chgSector()" style="width:250px;"></select>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label class="col-sm-3 control-label"><b>Sub Sector</b></label>
+                                                            <div class="col-sm-9 controls">
+                                                                <input type="text" class="form-control input-sm" data-ng-model="vm.scbDATATBValidated.sub_sector" style="width:250px;background-color:lightblue" />
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label class="col-sm-3 control-label"><b>Customer Id</b></label>
+                                                            <div class="col-sm-9 controls">
+                                                                <input type="text" class="form-control input-sm" data-ng-model="vm.scbDATATBValidated.customer_id" style="width:250px;background-color:lightblue" />
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label class="col-sm-3 control-label"><b>Group Organization</b></label>
+                                                            <div class="col-sm-9 controls">
+                                                                <input type="text" class="form-control input-sm" data-ng-model="vm.scbDATATBValidated.group_organization" style="width:250px;background-color:lightblue" />
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label class="col-sm-3 control-label"><b>Date Granted</b></label>
+                                                            <div class="col-sm-9 controls">
+                                                                <input type="date" class="form-control input-sm" data-ng-model="vm.scbDATATBValidated.date_granted" style="width:250px;background-color:lightblue" />
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label class="col-sm-3 control-label"><b>Last Credit Date</b></label>
+                                                            <div class="col-sm-9 controls">
+                                                                <input type="date" class="form-control input-sm" data-ng-model="vm.scbDATATBValidated.last_credit_date" style="width:250px;background-color:lightblue" />
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label class="col-sm-3 control-label"><b>Expiry Date</b></label>
+                                                            <div class="col-sm-9 controls">
+                                                                <input type="date" class="form-control input-sm" data-ng-model="vm.scbDATATBValidated.expiry_date" style="width:250px;background-color:lightblue" />
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label class="col-sm-3 control-label"><b>Sanction Limit</b></label>
+                                                            <div class="col-sm-9 controls">
+                                                                <input type="date" class="form-control input-sm" data-ng-model="vm.scbDATATBValidated.sanction_date" style="width:250px;background-color:lightblue" />
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label class="col-sm-3 control-label"><b>Previous Limit</b></label>
+                                                            <div class="col-sm-9 controls">
+                                                                <input type="text" class="form-control input-sm" data-ng-model="vm.scbDATATBValidated.previous_limit" style="width:250px;background-color:lightblue" />
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label class="col-sm-3 control-label"><b>Repayment Frequency</b></label>
+                                                            <div class="col-sm-9 controls">
+                                                                <input type="text" class="form-control input-sm" data-ng-model="vm.scbDATATBValidated.repayment_frequency" style="width:250px;background-color:lightblue" />
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label class="col-sm-3 control-label"><b>Cum Repayment Amount Due</b></label>
+                                                            <div class="col-sm-9 controls">
+                                                                <input type="text" class="form-control input-sm" data-ng-model="vm.scbDATATBValidated.cum_repayment_amount_due" style="width:250px;background-color:lightblue" />
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label class="col-sm-3 control-label"><b>Cum Repayment Amount Paid</b></label>
+                                                            <div class="col-sm-9 controls">
+                                                                <input type="text" class="form-control input-sm" data-ng-model="vm.scbDATATBValidated.cum_repayment_amount_paid" style="width:250px;background-color:lightblue" />
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label class="col-sm-3 control-label"><b>Cum Erest Due Not Yet Paid</b></label>
+                                                            <div class="col-sm-9 controls">
+                                                                <input type="text" class="form-control input-sm" data-ng-model="vm.scbDATATBValidated.cum_erest_due_not_yet_paid" style="width:250px;background-color:lightblue" />
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label class="col-sm-3 control-label"><b>Cum Principal Due Not Yet Paid</b></label>
+                                                            <div class="col-sm-9 controls">
+                                                                <input type="text" class="form-control input-sm" data-ng-model="vm.scbDATATBValidated.cum_principal_due_not_yet_paid" style="width:250px;background-color:lightblue" />
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label class="col-sm-3 control-label"><b>Erest Rate</b></label>
+                                                            <div class="col-sm-9 controls">
+                                                                <input type="text" class="form-control input-sm" data-ng-model="vm.scbDATATBValidated.erest_rate" style="width:250px;background-color:lightblue" />
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label class="col-sm-3 control-label"><b>Tenor</b></label>
+                                                            <div class="col-sm-9 controls">
+                                                                <input type="text" class="form-control input-sm" data-ng-model="vm.scbDATATBValidated.tenor" style="width:250px;background-color:lightblue" />
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label class="col-sm-3 control-label"><b>Balance</b></label>
+                                                            <div class="col-sm-9 controls">
+                                                                <input type="text" class="form-control input-sm" data-ng-model="vm.scbDATATBValidated.balance" style="width:250px;background-color:lightblue" />
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label class="col-sm-3 control-label"><b>Lcy</b></label>
+                                                            <div class="col-sm-9 controls">
+                                                                <input type="text" class="form-control input-sm" data-ng-model="vm.scbDATATBValidated.lcy" style="width:250px;background-color:lightblue" />
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label class="col-sm-3 control-label"><b>Details Of Securities Others</b></label>
+                                                            <div class="col-sm-9 controls">
+                                                                <input type="text" class="form-control input-sm" data-ng-model="vm.scbDATATBValidated.details_of_securities_others" style="width:250px;background-color:lightblue" />
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label class="col-sm-3 control-label"><b>Collateral Value</b></label>
+                                                            <div class="col-sm-9 controls">
+                                                                <input type="text" class="form-control input-sm" data-ng-model="vm.scbDATATBValidated.collateral_value" style="width:250px;background-color:lightblue" />
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label class="col-sm-3 control-label"><b>Collateral Status</b></label>
+                                                            <div class="col-sm-9 controls">
+                                                                <input type="text" class="form-control input-sm" data-ng-model="vm.scbDATATBValidated.collateral_status" style="width:250px;background-color:lightblue" />
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label class="col-sm-3 control-label"><b>Bank Classification</b></label>
+                                                            <div class="col-sm-9 controls">
+                                                                <input type="text" class="form-control input-sm" data-ng-model="vm.scbDATATBValidated.bank_classification" style="width:250px;background-color:lightblue" />
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label class="col-sm-3 control-label"><b>Last Examiners Classification</b></label>
+                                                            <div class="col-sm-9 controls">
+                                                                <input type="text" class="form-control input-sm" data-ng-model="vm.scbDATATBValidated.last_examiners_classification" style="width:250px;background-color:lightblue" />
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label class="col-sm-3 control-label"><b>Last Audit Date</b></label>
+                                                            <div class="col-sm-9 controls">
+                                                                <input type="text" class="form-control input-sm" data-ng-model="vm.scbDATATBValidated.last_audit_date" style="width:250px;background-color:lightblue" />
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label class="col-sm-3 control-label"><b>Name Of Auditor</b></label>
+                                                            <div class="col-sm-9 controls">
+                                                                <input type="text" class="form-control input-sm" data-ng-model="vm.scbDATATBValidated.name_of_auditor" style="width:250px;background-color:lightblue" />
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label class="col-sm-3 control-label"><b>Obligor Shareholder Fund</b></label>
+                                                            <div class="col-sm-9 controls">
+                                                                <input type="text" class="form-control input-sm" data-ng-model="vm.scbDATATBValidated.obligor_shareholder_fund" style="width:250px;background-color:lightblue" />
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label class="col-sm-3 control-label"><b>Obligor Profit Before Tax</b></label>
+                                                            <div class="col-sm-9 controls">
+                                                                <input type="text" class="form-control input-sm" data-ng-model="vm.scbDATATBValidated.obligor_profit_before_tax" style="width:250px;background-color:lightblue" />
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label class="col-sm-3 control-label"><b>Obligor Total Asset</b></label>
+                                                            <div class="col-sm-9 controls">
+                                                                <input type="text" class="form-control input-sm" data-ng-model="vm.scbDATATBValidated.obligor_total_asset" style="width:250px;background-color:lightblue" />
+                                                            </div>
+                                                        </div>
+
+
+
+
+
+                                                        <div>
+
+                                                            <div class="form-group mbn footbtns">
+                                                                <label class="col-sm-3 control-label"><b></b></label>
+                                                                <div class="col-sm-9 controls">
+                                                                    <button type="button" class="btn btn-success" ng-click="vm.save()">
+                                                                        <i class="fa fa-save"></i>&nbsp;
+                                                                        Save
+                                                                    </button>
+                                                                    <button type="button" class="btn btn-danger" data-ng-click="vm.delete()">Delete</button>
+                                                                    <button type="button" class="btn btn-default" data-ng-click="vm.cancel()">Cancel</button>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+
+                                                    </div>
+
+
+
+
+
+
+
+                                                </div>
+
+
+
+                                               
+                                            </div>
+
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+</div>
+

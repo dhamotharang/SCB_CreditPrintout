@@ -1,0 +1,96 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3> 
+        </div>
+
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <form>
+
+                        <label for="" class="control-label">Main Search: </label>
+                        <input type="text" class="input-sm" placeholder="Enter Reference Number or Account Number" ng-model="vm.searchParam " style="width:300px" />
+                        <button type="button" class="btn btn-default btn-sm" ng-click="vm.loadLoansECLComputationResultBySearch()">Load</button>
+                        <button type="button" class="btn btn-info btn-sm" ng-click="vm.refresh()">Refresh</button>
+                        <!--<a href="Home/LoadExcelrevenue" target="_blank">Export</a>-->
+                    </form>
+                </div>
+            </div>
+            <!--<div>
+        <button type="button" ng-csv="vm.loansecLComputationresultTable" filename="LoanPryExport.csv">Full Export</button>
+    </div>
+    <br />-->
+
+            <table id="loansecLComputationresultTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>AccountNo</th>
+                        <th>Refno</th>
+                        <th>CustomerName</th>
+                        <th>date_pmt</th>
+                        <th>Producttype</th>
+                        <th>SubType</th>
+                        <th>Stage</th>
+                        <th>Currency</th>
+                        <th>ExchangeRate</th>
+                        <th>AmortizedCost </th>
+                        <th>AmortizedCost_Trans</th>
+                        <th>TotalRecoverableAmt</th>
+                        <th>LGD</th>
+                        <th>DiscountFactor</th>
+                        <th>PDBest</th>
+                        <th>PDOptimistic</th>
+                        <th>PDDownTurn</th>
+                        <th>FinalECLBest</th>
+                        <th>FinalECLOptimistic</th>
+                        <th>FinalECLDownTurn</th>
+                        <th>FinalECLWeightAvg</th>
+                        <th>Rundate</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="loansecLComputationresults in vm.loansecLComputationresult">
+
+                        <td> {{ loansecLComputationresults.AccountNo }} </td>
+                        <td> {{ loansecLComputationresults.Refno }} </td>
+                        <td> {{ loansecLComputationresults.CustomerName }} </td>
+                        <td> {{ loansecLComputationresults.date_pmt | date  }} </td>
+                        <td> {{ loansecLComputationresults.Producttype }} </td>
+                        <td> {{ loansecLComputationresults.SubType }} </td>
+                        <td> {{ loansecLComputationresults.Stage }} </td>
+                        <td> {{ loansecLComputationresults.Currency }} </td>
+                        <td> {{ loansecLComputationresults.ExchangeRate }} </td>
+                        <td> {{ loansecLComputationresults.AmortizedCost | currency :"":0 }} </td>
+                        <td> {{ loansecLComputationresults.AmortizedCost_Trans | currency :"":0 }} </td>
+                        <td> {{ loansecLComputationresults.TotalRecoverableAmt | currency :"":0 }} </td>
+                        <td> {{ loansecLComputationresults.LGD }} </td>
+                        <td> {{ loansecLComputationresults.DiscountFactor }} </td>
+                        <td> {{ loansecLComputationresults.PDBest }} </td>
+                        <td> {{ loansecLComputationresults.PDOptimistic }} </td>
+                        <td> {{ loansecLComputationresults.PDDownTurn }} </td>
+                        <td> {{ loansecLComputationresults.FinalECLBest }} </td>
+                        <td> {{ loansecLComputationresults.FinalECLOptimistic }} </td>
+                        <td> {{ loansecLComputationresults.FinalECLDownTurn }} </td>
+                        <td> {{ loansecLComputationresults.FinalECLWeightAvg }} </td>
+                        <td> {{ loansecLComputationresults.Rundate | date }} </td>
+
+
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+
+
+    </div>
+</div>

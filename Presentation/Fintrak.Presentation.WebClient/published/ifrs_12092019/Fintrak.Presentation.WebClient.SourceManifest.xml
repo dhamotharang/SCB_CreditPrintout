@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sitemanifest>
+  <IisApp path="C:\SCB_PI_360\S.T.E.R.L.I.N.G   I.F.R.S.9\Presentation\Fintrak.Presentation.WebClient\obj\Release\Package\PackageTmp" managedRuntimeVersion="v4.0" />
+  <setAcl path="C:\SCB_PI_360\S.T.E.R.L.I.N.G   I.F.R.S.9\Presentation\Fintrak.Presentation.WebClient\obj\Release\Package\PackageTmp" setAclResourceType="Directory" />
+  <setAcl path="C:\SCB_PI_360\S.T.E.R.L.I.N.G   I.F.R.S.9\Presentation\Fintrak.Presentation.WebClient\obj\Release\Package\PackageTmp" setAclUser="anonymousAuthenticationUser" setAclResourceType="Directory" />
+</sitemanifest>

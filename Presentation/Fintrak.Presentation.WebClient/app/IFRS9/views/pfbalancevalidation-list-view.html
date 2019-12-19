@@ -1,0 +1,84 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3>
+        </div>
+
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+
+            <div class="row">
+                <div class="col-md-12">
+
+                    <form>
+                        <label for="" class="control-label">Filter PF Balances: </label>
+                        <select class="input-sm" ng-model="vm.opt_1" ng-options="options.name for options in vm.pfBalances" style="width:250px;" ng-change="vm.getPFBalanceSum()"></select>
+
+                        <label for="" class="control-label">Filter GL Codes: </label>
+                        <select class="input-sm" ng-model="vm.opt_2" ng-options="options.name for options in vm.pfGlCodes" style="width:250px;" ng-change="vm.getPFBalanceSum()"></select>
+
+                        &nbsp;&nbsp;
+                    </form>
+
+
+                </div>
+            </div>
+
+            <div>
+                <!--<a class="btn btn-info btn-xs" data-ui-sref="ifrs-pfbalancevalidation-edit({ID:0})"> Create New</a>-->
+                <button type="button" class="btn btn-info btn-sm" ng-click="vm.refresh()">Refresh</button>
+            </div>
+
+            <br />
+
+            <table id="pfBALANCEValidationTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+
+                        <th> Productcode</th>
+                        <th> Glcode</th>
+                        <th> GL Balance</th>
+                        <th> Loan Balance</th>
+                        <th> Differences </th>
+
+                        <th style="width: 3%;">Action</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <tr ng-repeat="pfBALANCEValidations in vm.pfBALANCEValidation">
+
+                        <td>{{pfBALANCEValidations.Productcode }}</td>
+                        <td>{{ pfBALANCEValidations.Glcode }}</td>
+                        <td>{{ pfBALANCEValidations.GL_Balance }}</td>
+                        <td>{{ pfBALANCEValidations.Loan_balance }}</td>
+                        <td>{{ pfBALANCEValidations.Differences }}</td>
+
+                        <td>
+                            <a class="btn btn-orange btn-xs" data-ui-sref="ifrs-pfbalancevalidation-edit({ID:pfBALANCEValidations.ID})">
+                                Edit
+                            </a>
+                        </td>
+
+                    </tr>
+
+                </tbody>
+            </table>
+
+        </div>
+
+
+
+    </div>
+</div>
