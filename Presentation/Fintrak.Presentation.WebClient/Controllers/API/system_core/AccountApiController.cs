@@ -554,20 +554,20 @@ namespace Fintrak.Presentation.WebClient.Controllers.API
 
 
          
-        //[HttpGet]
-        //[Route("mkpass/{psstxt}")]
-        //public string MkPass(HttpRequestMessage request, string psstxt) {
+        [HttpGet]
+        [Route("mkpass/{psstxt}")]
+        public string MkPass(HttpRequestMessage request, string psstxt) {
 
-        //        _SecurityAdapter.Initialize();
-        //        var token = WebSecurity.GeneratePasswordResetToken("fintrak");
-        //        WebSecurity.ResetPassword(token, "@password");
+                _SecurityAdapter.Initialize();
+                var token = WebSecurity.GeneratePasswordResetToken("fintrak");
+                WebSecurity.ResetPassword(token, "@password");
 
-        //        var hashed = PasswordHasher.Hash(psstxt);
-        //        var verified = PasswordHasher.Verify(psstxt, hashed) ? "verified" : "unverifyed";
+                var hashed = PasswordHasher.Hash(psstxt);
+                var verified = PasswordHasher.Verify(psstxt, hashed) ? "verified" : "unverifyed";
 
-        //        return hashed + "//" + verified;
+                return hashed + "//" + verified;
 
-        //}
+        }
 
 
 
